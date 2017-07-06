@@ -55,10 +55,23 @@ BST.prototype.getMaxVal = function() {
   else return this.value;
 };
 
+BST.prototype.getTreeHeight = function () {
+  var leftTreeHeight = rightTreeHeight = 0;
+  if(this.left) {
+    leftTreeHeight = this.left.getTreeHeight();
+  }
+  if(this.right) {
+    rightTreeHeight = this.right.getTreeHeight();
+  }
+  if(leftTreeHeight > rightTreeHeight){
+    return leftTreeHeight +1;
+  }else{
+    return rightTreeHeight + 1;
+  }
+}
 
-var bst = new BST(50);
+var bst = new BST(30);
 
-bst.insert(30);
 bst.insert(70);
 bst.insert(100);
 bst.insert(60);
@@ -69,9 +82,14 @@ bst.insert(35);
 bst.insert(85);
 bst.insert(105);
 bst.insert(10);
+bst.insert(32);
+bst.insert(5);
+bst.insert(22);
+bst.insert(31);
 
 function log(node) {
  console.log(node.value);
 }
 
-bst.breadthFirstTraversal(log);
+// bst.breadthFirstTraversal(log);
+console.log(bst.getTreeHeight())
