@@ -57,17 +57,14 @@ BST.prototype.getMaxVal = function() {
 
 BST.prototype.getTreeHeight = function () {
   var leftTreeHeight = rightTreeHeight = 0;
-  if(this.left) {
-    leftTreeHeight = this.left.getTreeHeight();
-  }
-  if(this.right) {
-    rightTreeHeight = this.right.getTreeHeight();
-  }
-  if(leftTreeHeight > rightTreeHeight){
-    return leftTreeHeight +1;
-  }else{
-    return rightTreeHeight + 1;
-  }
+  if(this.left) leftTreeHeight = this.left.getTreeHeight();
+  if(this.right) rightTreeHeight = this.right.getTreeHeight();
+  if(leftTreeHeight > rightTreeHeight) return leftTreeHeight +1;
+  else return rightTreeHeight + 1;
+}
+
+BST.prototype.printLongestPath = function () {
+
 }
 
 var bst = new BST(30);
